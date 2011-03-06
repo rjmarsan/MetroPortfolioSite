@@ -19,7 +19,12 @@ class MenuItem:
         self.title = title
         if url:
             self.url = url.lower()
+        else:
+            self.url = title
         self.subitems = subitems
+        if subitems:
+            for sub in subitems:
+                sub.url = str(url)+"/"+sub.url
         self.data = Content(title, url)
 
 

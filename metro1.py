@@ -1,5 +1,6 @@
 from flask import Flask, render_template, url_for
 import navbar
+import content
 from projects import allprojects
 app = Flask(__name__)
 
@@ -21,6 +22,17 @@ def show_top_level(toplevel="home"):
         else:
             return render_page("404404404!", toplevel=toplevel)
 
+@app.route('/<toplevel>/<secondlevel>')
+def show_second_level(toplevel, secondlevel):
+    project = get_project(secondlevel)
+    if project:
+        return render_page(render_project(project), toplevel=toplevel)
+    else:
+        content = get_content(secondlevel)
+        if content:
+            return render_page(content.text, toplevel=toplevel)
+        else:
+            return render_page("404404404!", toplevel=toplevel)
 
 def get_navbar_item(toplevel):
     for navbaritem in navbar.items:
