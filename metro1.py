@@ -1,13 +1,15 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, url_for
 import navbar
 from projects import allprojects
 app = Flask(__name__)
 
 RENDER_RAW = False #True
 
+
+
 @app.route('/')
 def hello_world():
-    return render_page("Hello world!")
+    return url_for('gallery')
 
 @app.route('/gallery/<tag>')
 def show_gallery(tag):
@@ -47,6 +49,8 @@ def show_project(projectname):
 
 
 
+def make_navbarlist(url):
+    pass
 
 
 ## The rendering function

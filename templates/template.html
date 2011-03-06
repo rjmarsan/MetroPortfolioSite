@@ -1,17 +1,23 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
-<html lang="en">
-<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>My Webpage</title>
-    <link rel="stylesheet" type="text/css"  href="/static/css/site.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/site.css">
 </head>
 <body>
-    <ul id="navigation">
-    {% for item in navigation %}
-        <li><a href="{{ item.url }}">{{ item.title|safe }}</a></li>
-    {% endfor %}
-    </ul>
-
-    <h1>My Webpage</h1>
-    {{ body|safe }}
+    <div id="page">
+         <div id="header">
+             <h1>Jessica Metro</h1>
+         </div>
+         <div id="navbar">
+             <ul id="navigation">
+                    {% for item in navigation %}
+                        <li><a href="{{ item.url }}">{{ item.title|safe }}</a></li>
+                    {% endfor %}
+             </ul>
+         </div>
+         <div id="content">
+                {{ body|safe }}
+         </div>
+    </div>
 </body>
 </html>

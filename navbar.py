@@ -1,6 +1,13 @@
+TITLE = "title"
+URL = "url"
 
 items = [ 
-    { 'title' : 'home', 'url' : '/' },
-    { 'title' : 'about', 'url' : '/' },
-    { 'title' : 'projects', 'url' : '/' },
+    { TITLE : 'Graphic Design', URL : '/' },
+    { TITLE : 'Photography', URL : '/' },
+    { TITLE : 'Sculpture/Drawing', URL : '/' },
+    { TITLE : 'Experiments/Studies', URL : '/' },
+    { TITLE : 'About', URL : '/' },
+    { TITLE : 'CV', URL : '/' },
+    { TITLE : 'Sample Portfolio', URL : '/' },
+    { TITLE : 'Contacts', URL : '/' },
 ]

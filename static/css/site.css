@@ -1,6 +1,79 @@
 body {
-    background: #555;
-    width: 800px;
+    background: #000;
+    width: 830px;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+    
+    font-family: "Gill Sans", "Helvetica Neue", geneva, helvetica, arial, sans-serif;
+
+
+    /* Use a 14px base font size with a 18px line height */
+    font-size: 10pt; /* 16px x .875 = 14px */
+    line-height: 14pt; /* 14px x 1.286 = 18px */
+    color:#ccc;
+
+}
+
+h1, h2, h3, h4, #navbar {
+	font-family: Georgia, serif;
+	color:#fff;
+}
+h1 {
+    font-size: 64px;
+}
+h2 {
+    font-size: 23px;
+}
+h3 {
+    font-size: 22px;
+}
+a:link, a:visited
+{
+	color:#1a94a3;
+	text-decoration:none;
+}
+
+
+#navbar li {
+	text-align: right;
+	font-size: 18px;
+	padding-top: 4px;
+	padding-bottom: 4px;
+}
+
+
+#page {
+	padding: 0;
+}
+
+#header {
+	padding: 10px;
+	padding-bottom: 0px;
+}
+
+
+#navbar ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	margin-left: 10px;
+	margin-top: 19px;
+	margin-right: 35px;
+}
+
+#navbar {
+	float: left;
+	width: 230px;	
+}
+
+#content {
+	float: right;
+	width: 600px;
+}
+
+#content p {
+	width: 400px;
 }
