@@ -1,2 +1,9 @@
 *.pyc
 env/
+
+gdfa10
+net2ftp_installer.php
+net2ftp_temp_7cesm/
+ssc/
+test/
+
