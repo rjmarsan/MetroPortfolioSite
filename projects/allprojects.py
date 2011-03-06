@@ -7,9 +7,12 @@ in addition, add it to the first line here.  'import project, ...' include yours
 """
 
 
-import project, awesomeproject
+import project, awesomeproject, goodroots, portraits, food
 
 projects = [
     awesomeproject.Project(),
+    goodroots.Project(),
+    portraits.Project(),
+    food.Project(),
     #add more just like above!
 ]

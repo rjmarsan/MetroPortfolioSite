@@ -72,6 +72,8 @@ def render_page(body, toplevel=None):
     return render_template("template.html", body=body, navigation=make_navbarlist(toplevel))
 
 def render_project(project):
+    if project.gallery:
+        return render_template("galleryimages.html", project=project)
     return render_template("project.html", project=project)
 
 def render_gallery(project_list):

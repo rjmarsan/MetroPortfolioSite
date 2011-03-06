@@ -18,7 +18,7 @@ class MenuItem:
             url = ""
         self.title = title
         if url:
-            self.url = url.lower()
+            self.url = url
         else:
             self.url = title
         self.subitems = subitems
@@ -29,16 +29,12 @@ class MenuItem:
 
 
 gditems = [
-    MenuItem('Thing1'),
-    MenuItem('Thing2'),
-    MenuItem('Thing3'),
-    MenuItem('Thing4'),
-    MenuItem('Thing5'),
+    MenuItem('Good Roots', 'GoodRoots'),
 ]
 
 photoitems = [
     MenuItem('Portrait', 'Portrait'),
-    MenuItem('Stock', 'Stock'),
+    MenuItem('Food', 'Food'),
     MenuItem('Art', 'Art'),
 ]
 

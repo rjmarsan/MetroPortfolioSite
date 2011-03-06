@@ -1,6 +1,6 @@
 body {
     background: #000;
-    width: 830px;
+    width: 960px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 30px;
@@ -87,7 +87,7 @@ h3 {
 
 #content {
 	float: right;
-	width: 600px;
+	width: 730px;
 }
 
 #content p {

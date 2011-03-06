@@ -1,9 +1,6 @@
-<h2>Title: {{ project.title }} </h2>
+<h2>{{ project.title|safe }} </h2>
 {% for image in project.details_images %}
-<img src="{{ image.url }}" alt="{{ image.description }}"/>
+<img src="{{ image.url }}" alt="{{ image.description|safe }}"/>
 {% endfor %}
 
-<h4> description: </h4>
-<p>
-{{ project.details_description_string }}
-</p>
+{{ project.details_description_string|safe }}

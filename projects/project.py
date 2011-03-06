@@ -33,7 +33,11 @@ class Project:
     details_description_string = ""
     infoview_description_string = ""
 
-
+    
+    gallery = False
+    gallery_thumburl = "gallery_thumb"
+    gallery_full = "gallery_full"
+    gallery_text = "gallery_text"
 
     def __init__(self):
         try:

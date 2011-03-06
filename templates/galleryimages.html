@@ -1,0 +1,34 @@
+<script type="text/javascript">
+$(function() {
+    $('#gallery a').colorbox({ 
+        height: "90%",
+        scalePhotos: true,
+        rel: 'gallery',
+        opacity: 0.7,
+    }); // Select all links in object with gallery ID
+});
+</script>
+<style type="text/css">
+.galleryitem {
+    width: 150px;
+    height: 150px;
+    margin: 10px;
+    float: left;
+}
+
+.galleryitem img {
+    background: #333;
+    padding: 5px;
+}
+
+</style>
+<div id="gallery">
+    {% for imgtext in project.gallery_data %}
+    <div class="galleryitem">
+        <a href="{{ imgtext.gallery_full }}" rel="gallery">
+            <img src="{{ imgtext.gallery_thumb }}" alt="{{ imgtext.gallery_text }}"/>
+            <div class="bottomtext">{{imgtext.gallery_text|safe}}</div>
+        </a>
+    </div>
+    {% endfor %}
+</div>

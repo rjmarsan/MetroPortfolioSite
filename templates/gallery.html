@@ -1,5 +1,10 @@
-<ul>
+<script type="text/javascript">
+$(function() {
+    $('#gallery a').lightBox(); // Select all links in object with gallery ID
+});
+</script>
+<div id="gallery">
 {% for gallery_item in projects %}
 <li> {{ gallery_item|safe }} </li>
 {% endfor %}
-</ul>
+</div>
