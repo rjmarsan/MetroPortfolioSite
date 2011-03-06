@@ -13,9 +13,13 @@ RENDER_RAW = False #True
 def show_top_level(toplevel="home"):
     navbaritem = get_navbar_item(toplevel)
     if navbaritem:
-        return render_page(navbaritem.text, toplevel=toplevel)
+        return render_page(navbaritem.data.text, toplevel=toplevel)
     else:
-        return render_page("404404404!", toplevel=toplevel)
+        content = get_content(toplevel)
+        if content:
+            return render_page(content.text, toplevel=toplevel)
+        else:
+            return render_page("404404404!", toplevel=toplevel)
 
 
 def get_navbar_item(toplevel):
@@ -30,6 +34,12 @@ def make_navbarlist(toplevel):
         else:
             navbaritem.selected = False
     return navbar.items
+
+def get_content(toplevel):
+    for contentitem in content.items:
+        if contentitem.url.lower() == toplevel.lower():
+            return contentitem
+    return None
 
 
 ## The rendering function

@@ -6,7 +6,7 @@ class MenuItem:
     url = "url"
     subitems = []
 
-    text = ""
+    data = None
 
     spacer = False
     
