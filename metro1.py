@@ -8,54 +8,33 @@ RENDER_RAW = False #True
 
 
 @app.route('/')
-def hello_world():
-    return url_for('gallery')
+@app.route('/<toplevel>')
+@app.route('/<toplevel>/')
+def show_top_level(toplevel="home"):
+    navbaritem = get_navbar_item(toplevel)
+    if navbaritem:
+        return render_page(navbaritem.text, toplevel=toplevel)
+    else:
+        return render_page("404404404!", toplevel=toplevel)
 
-@app.route('/gallery/<tag>')
-def show_gallery(tag):
-    projects = get_projects_from_tags([tag])
-    if projects:
-        if RENDER_RAW:
-            return render_gallery(projects)
+
+def get_navbar_item(toplevel):
+    for navbaritem in navbar.items:
+        if navbaritem.url == toplevel:
+            return navbaritem
+
+def make_navbarlist(toplevel):
+    for navbaritem in navbar.items:
+        if navbaritem.url.lower() == toplevel.lower():
+            navbaritem.selected = True
         else:
-            return render_page(render_gallery(projects))
-    else:
-        return "liar!"
-
-@app.route('/show/gallery/<projectname>')
-def show_gallery_view(projectname):
-    project = get_project(projectname)
-    if project:
-        return render_gallery_item(project)
-    else:
-        return "liar!"
-
-
-
-@app.route('/info/<tag>')
-def show_info(tag):
-    return "Fancy infoness: "+tag
-
-@app.route('/show/<projectname>')
-def show_project(projectname):
-    project = get_project(projectname)
-    if project:
-        if RENDER_RAW:
-            return render_project(project)
-        else:
-            return render_page(render_project(project))
-    else:
-        return "liar!"
-
-
-
-def make_navbarlist(url):
-    pass
+            navbaritem.selected = False
+    return navbar.items
 
 
 ## The rendering function
-def render_page(body):
-    return render_template("template.html", body=body, navigation=navbar.items)
+def render_page(body, toplevel=None):
+    return render_template("template.html", body=body, navigation=make_navbarlist(toplevel))
 
 def render_project(project):
     return render_template("project.html", project=project)

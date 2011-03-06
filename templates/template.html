@@ -1,17 +1,32 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>My Webpage</title>
+    <title>Metro Design</title>
     <link rel="stylesheet" type="text/css" href="/static/css/site.css">
 </head>
 <body>
     <div id="page">
          <div id="header">
-             <h1>Jessica Metro</h1>
+             <h1><a class="header" href="/">Jessica Metro</a></h1>
          </div>
          <div id="navbar">
              <ul id="navigation">
                     {% for item in navigation %}
-                        <li><a href="{{ item.url }}">{{ item.title|safe }}</a></li>
+                        <li 
+                            {% if item.spacer %}
+                                style="height: 20px;"
+                            {% endif %}
+                        >
+                            <a href="/{{ item.url }}">
+                                {{ item.title|safe }}
+                            </a>
+                            {% if item.subitems and item.selected %}
+                                <ul>
+                                {% for subitem in item.subitems %}
+                                    <li><a href="/{{ subitem.url }}"> {{ subitem.title|safe }} </a>  </li>
+                                {% endfor %}
+                                </ul>
+                            {% endif %}
+                        </li>
                     {% endfor %}
              </ul>
          </div>

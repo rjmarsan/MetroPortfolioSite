@@ -1,13 +1,51 @@
-TITLE = "title"
-URL = "url"
+NAVDATA_LOC = "./metrodata/pages/"
+from content import Content
+
+class MenuItem:
+    title = "title"
+    url = "url"
+    subitems = []
+
+    text = ""
+
+    spacer = False
+    
+    def __init__(self, title, url=None, subitems=None):
+        if not title:
+            print "Null item!"
+            self.spacer = True
+            title = ""
+            url = ""
+        self.title = title
+        if url:
+            self.url = url.lower()
+        self.subitems = subitems
+        self.data = Content(title, url)
+
+
+gditems = [
+    MenuItem('Thing1'),
+    MenuItem('Thing2'),
+    MenuItem('Thing3'),
+    MenuItem('Thing4'),
+    MenuItem('Thing5'),
+]
+
+photoitems = [
+    MenuItem('Portrait', 'Portrait'),
+    MenuItem('Stock', 'Stock'),
+    MenuItem('Art', 'Art'),
+]
+
 
 items = [ 
-    { TITLE : 'Graphic Design', URL : '/' },
-    { TITLE : 'Photography', URL : '/' },
-    { TITLE : 'Sculpture/Drawing', URL : '/' },
-    { TITLE : 'Experiments/Studies', URL : '/' },
-    { TITLE : 'About', URL : '/' },
-    { TITLE : 'CV', URL : '/' },
-    { TITLE : 'Sample Portfolio', URL : '/' },
-    { TITLE : 'Contacts', URL : '/' },
+    MenuItem('Graphic Design', 'GraphicDesign', gditems),
+    MenuItem('Photography', 'Photography', photoitems),
+    MenuItem('Sculpture/Drawing', 'SculptureDrawing'),
+    MenuItem('Research', 'Research'),
+    MenuItem(None, None),
+    MenuItem('About', 'About'),
+    MenuItem('CV', 'CV'),
+    MenuItem('Sample Portfolio', 'SamplePortfolio'),
+    MenuItem('Contacts', 'Contacts'),
 ]
