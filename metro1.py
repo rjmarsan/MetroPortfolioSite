@@ -1,10 +1,23 @@
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, redirect
 import navbar
 import content
 from projects import allprojects
 app = Flask(__name__)
 
 RENDER_RAW = False #True
+
+#redirect fixes!!!
+
+@app.route('/ssc')
+@app.route('/ssc/')
+@app.route('/ssc/<path:path>')
+def redirect(path):
+    print path
+    if path:
+    	return redirect('http://jessica.metro-art.org/static/ssc/'+path)
+    else:
+        return redirect('http://jessica.metro-art.org/static/ssc/index.html')
+
 
 
 
